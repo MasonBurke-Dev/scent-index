@@ -12,7 +12,7 @@ public class CologneAppApplication {
 
     @RequestMapping("/")
     String home() {
-        return "Hello Chat";
+        return "index.html";
     }
 
     public static void main(String[] args) {
