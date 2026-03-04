@@ -10,6 +10,9 @@
 
 <nav class="navbar">
     <div class="logo">Scent<span>Index</span></div>
+    <div class="search-container">
+        <input type="text" placeholder="Search fragrances, notes, brands...">
+    </div>
     <ul class="nav-links">
         <li class="dropdown">
             <a href="#" class="dropbtn">Explore</a>
@@ -42,27 +45,86 @@
 </nav>
 
 <header class="hero">
-    <div class="hero-content">
-        <h1>Precision Fragrance Discovery</h1>
-        <p>Search, rank, and compare colognes with data-driven clarity.</p>
-        <a href="#" class="cta-button">Explore Scents</a>
+    <div class="hero-welcome">
+        <div class="greeting">Welcome to Scent Index</div>
+        <h1>Discover your next signature.</h1>
+        <p>Curated collections and data-driven insights for the modern collector.</p>
+    </div>
+    
+    <div class="trending-carousel">
+        <div class="carousel-header">
+            <span class="tag">Trending Now</span>
+            <div class="carousel-controls">
+                <span class="control-dot active"></span>
+                <span class="control-dot"></span>
+                <span class="control-dot"></span>
+            </div>
+        </div>
+        
+        <div class="carousel-track">
+            <div class="carousel-item active">
+                <div class="item-visual placeholder-1"></div>
+                <div class="item-info">
+                    <span class="brand">Creed</span>
+                    <h3>Aventus</h3>
+                    <div class="item-meta">
+                        <span>Fruity</span> • <span>Woody</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="item-visual placeholder-2"></div>
+                <div class="item-info">
+                    <span class="brand">Chanel</span>
+                    <h3>Bleu de Chanel</h3>
+                    <div class="item-meta">
+                        <span>Citrus</span> • <span>Fresh</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="item-visual placeholder-3"></div>
+                <div class="item-info">
+                    <span class="brand">Dior</span>
+                    <h3>Sauvage</h3>
+                    <div class="item-meta">
+                        <span>Spicy</span> • <span>Amber</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
-<section class="features">
-    <div class="feature-card">
-        <h3>Smart Filtering</h3>
-        <p>Filter by notes, longevity, projection, season, and price.</p>
-    </div>
-
-    <div class="feature-card">
-        <h3>Weighted Rankings</h3>
-        <p>Adjust importance of performance metrics and personalize results.</p>
-    </div>
-
-    <div class="feature-card">
-        <h3>Note Indexing</h3>
-        <p>Deep relational mapping of accords and fragrance compositions.</p>
+<section class="discover-vibe">
+    <h2 class="section-title">Find Your Signature</h2>
+    <div class="vibe-grid">
+        <div class="vibe-card date-night">
+            <div class="vibe-overlay">
+                <h3>Date Night</h3>
+                <p>Seductive & Warm</p>
+            </div>
+        </div>
+        <div class="vibe-card office">
+            <div class="vibe-overlay">
+                <h3>Office Ready</h3>
+                <p>Clean & Professional</p>
+            </div>
+        </div>
+        <div class="vibe-card summer">
+            <div class="vibe-overlay">
+                <h3>Summer Days</h3>
+                <p>Fresh & Aquatic</p>
+            </div>
+        </div>
+        <div class="vibe-card signature">
+            <div class="vibe-overlay">
+                <h3>The Icon</h3>
+                <p>Classic & Timeless</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -109,6 +171,7 @@
 
 <footer>
     <p>© 2026 Scent Index</p>
+    <p>Current time is <span th:text="${serverTime}" /></p>
 </footer>
 
 </body>
