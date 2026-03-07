@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+
+        lang="en">
 <head>
     <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scent Index</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -65,8 +68,8 @@
             <div class="carousel-item active">
                 <div class="item-visual placeholder-1"></div>
                 <div class="item-info">
-                    <span class="brand">Creed</span>
-                    <h3>Aventus</h3>
+                    <span class="brand" th:text="${populist[0].getBrand()}"></span>
+                    <h3 th:text="${populist[0].getName}"></h3>
                     <div class="item-meta">
                         <span>Fruity</span> • <span>Woody</span>
                     </div>
@@ -171,7 +174,7 @@
 
 <footer>
     <p>© 2026 Scent Index</p>
-    <p>Current time is <span th:text="${serverTime}" /></p>
+    <div th:text="|Sum of 2 + 2 = ${2+2}|"></div>
 </footer>
 
 </body>
