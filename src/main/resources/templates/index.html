@@ -18,7 +18,7 @@
     </div>
     <ul class="nav-links">
         <li class="dropdown">
-            <a href="#" class="dropbtn">Explore</a>
+            <a href="/colognes" class="dropbtn">Explore</a>
             <div class="dropdown-content">
                 <a href="#">New Arrivals</a>
                 <a href="#">Seasonal Picks</a>
@@ -68,10 +68,10 @@
             <div class="carousel-item active">
                 <div class="item-visual placeholder-1"></div>
                 <div class="item-info">
-                    <span class="brand" th:text="${populist[0].getBrand()}"></span>
-                    <h3 th:text="${populist[0].getName}"></h3>
+                    <span class="brand">Dior</span>
+                    <h3 >Sauvage</h3>
                     <div class="item-meta">
-                        <span>Fruity</span> • <span>Woody</span>
+                        <span>Clean</span> • <span>Woody</span>
                     </div>
                 </div>
             </div>
@@ -134,41 +134,41 @@
 <section class="popular-scents">
     <h2 class="section-title">Trending Fragrances</h2>
     <div class="scents-grid">
-        <div class="scent-card">
+        <a th:href="@{/colognes/cologne/1}" class="scent-card" style="text-decoration: none; color: inherit;">
             <div class="scent-image placeholder-1"></div>
             <div class="scent-info">
                 <span class="brand">Creed</span>
                 <h4>Aventus</h4>
                 <p>Fruity, Woody, Rich</p>
             </div>
-        </div>
+        </a>
 
-        <div class="scent-card">
+        <a th:href="@{/colognes/cologne/2}" class="scent-card" style="text-decoration: none; color: inherit;">
             <div class="scent-image placeholder-2"></div>
             <div class="scent-info">
                 <span class="brand">Chanel</span>
                 <h4>Bleu de Chanel</h4>
                 <p>Citrus, Woody, Fresh</p>
             </div>
-        </div>
+        </a>
 
-        <div class="scent-card">
+        <a th:href="@{/colognes/cologne/3}" class="scent-card" style="text-decoration: none; color: inherit;">
             <div class="scent-image placeholder-3"></div>
             <div class="scent-info">
                 <span class="brand">Dior</span>
                 <h4>Sauvage</h4>
                 <p>Spicy, Amber, Raw</p>
             </div>
-        </div>
+        </a>
 
-        <div class="scent-card">
+        <a th:href="@{/colognes/cologne/4}" class="scent-card" style="text-decoration: none; color: inherit;">
             <div class="scent-image placeholder-4"></div>
             <div class="scent-info">
                 <span class="brand">Maison Margiela</span>
                 <h4>Jazz Club</h4>
                 <p>Boozy, Tobacco, Sweet</p>
             </div>
-        </div>
+        </a>
     </div>
 </section>
 
