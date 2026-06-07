@@ -7,25 +7,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 
-@Controller
+import java.util.List;
+
+@Controller // 1
 @RequestMapping("/colognes")
 public class CologneController {
 
-    private final CologneRepository repo;
+    private final CologneRepository repository;
 
-    public CologneController(CologneRepository repo) {
-        this.repo = repo;
+    public CologneController(CologneRepository repository) {
+        this.repository = repository;
     }
 
-    @GetMapping
-    public String getAll(Model model) {
-        model.addAttribute("colognes", repo.findAll());
-        return "colognes";
+    // 2. GET request for /colognes/
+    @GetMapping("/")
+    public String getTrending(Model model) {
+        // Query database for the first 4 entries
+        List<Cologne> trending = repository.findAll().stream().limit(4).toList(); // 3
+        model.addAttribute("trendingColognes", trending); // 4
+        return "index"; // 5
     }
 
+    // 6. GET request for /colognes/cologne/{id}
     @GetMapping("/cologne/{id}")
-    public String getOne(@PathVariable Long id, Model model) {
-        model.addAttribute("cologne", repo.findById(id).orElse(null));
-        return "cologne";
+    public String getCologneDetails(@PathVariable("id") Long id, Model model) {
+        // Query record by unique ID; throw error if missing
+        Cologne cologne = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid ID: " + id)); // 7
+
+        model.addAttribute("cologne", cologne);
+        return "cologne"; // 8
     }
 }

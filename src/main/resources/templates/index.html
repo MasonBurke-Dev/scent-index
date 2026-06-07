@@ -134,41 +134,55 @@
 <section class="popular-scents">
     <h2 class="section-title">Trending Fragrances</h2>
     <div class="scents-grid">
-        <a th:href="@{/colognes/cologne/1}" class="scent-card" style="text-decoration: none; color: inherit;">
+        <!-- Dynamic Trending Fragrances (displayed when model has trendingColognes) -->
+        <a th:each="cologne : ${trendingColognes}" th:href="@{'/colognes/cologne/' + ${cologne.id}}" class="scent-card" style="text-decoration: none; color: inherit;">
             <div class="scent-image placeholder-1"></div>
             <div class="scent-info">
-                <span class="brand">Creed</span>
-                <h4>Aventus</h4>
-                <p>Fruity, Woody, Rich</p>
+                <span class="brand" th:text="${cologne.brand}">Brand</span>
+                <h4 th:text="${cologne.name}">Cologne Name</h4>
+                <p th:text="${cologne.description}">Description...</p>
+                <div class="price" style="margin-top: 15px; color: #ffffff; font-weight: 600;" th:text="${'$' + cologne.price}">$0.00</div>
             </div>
         </a>
 
-        <a th:href="@{/colognes/cologne/2}" class="scent-card" style="text-decoration: none; color: inherit;">
-            <div class="scent-image placeholder-2"></div>
-            <div class="scent-info">
-                <span class="brand">Chanel</span>
-                <h4>Bleu de Chanel</h4>
-                <p>Citrus, Woody, Fresh</p>
-            </div>
-        </a>
+        <!-- Fallback Static Fragrances if database/model attribute is empty -->
+        <th:block th:if="${#lists.isEmpty(trendingColognes)}">
+            <a th:href="@{/colognes/cologne/1}" class="scent-card" style="text-decoration: none; color: inherit;">
+                <div class="scent-image placeholder-1"></div>
+                <div class="scent-info">
+                    <span class="brand">Creed</span>
+                    <h4>Aventus</h4>
+                    <p>Fruity, Woody, Rich</p>
+                </div>
+            </a>
 
-        <a th:href="@{/colognes/cologne/3}" class="scent-card" style="text-decoration: none; color: inherit;">
-            <div class="scent-image placeholder-3"></div>
-            <div class="scent-info">
-                <span class="brand">Dior</span>
-                <h4>Sauvage</h4>
-                <p>Spicy, Amber, Raw</p>
-            </div>
-        </a>
+            <a th:href="@{/colognes/cologne/2}" class="scent-card" style="text-decoration: none; color: inherit;">
+                <div class="scent-image placeholder-2"></div>
+                <div class="scent-info">
+                    <span class="brand">Chanel</span>
+                    <h4>Bleu de Chanel</h4>
+                    <p>Citrus, Woody, Fresh</p>
+                </div>
+            </a>
 
-        <a th:href="@{/colognes/cologne/4}" class="scent-card" style="text-decoration: none; color: inherit;">
-            <div class="scent-image placeholder-4"></div>
-            <div class="scent-info">
-                <span class="brand">Maison Margiela</span>
-                <h4>Jazz Club</h4>
-                <p>Boozy, Tobacco, Sweet</p>
-            </div>
-        </a>
+            <a th:href="@{/colognes/cologne/3}" class="scent-card" style="text-decoration: none; color: inherit;">
+                <div class="scent-image placeholder-3"></div>
+                <div class="scent-info">
+                    <span class="brand">Dior</span>
+                    <h4>Sauvage</h4>
+                    <p>Spicy, Amber, Raw</p>
+                </div>
+            </a>
+
+            <a th:href="@{/colognes/cologne/4}" class="scent-card" style="text-decoration: none; color: inherit;">
+                <div class="scent-image placeholder-4"></div>
+                <div class="scent-info">
+                    <span class="brand">Maison Margiela</span>
+                    <h4>Jazz Club</h4>
+                    <p>Boozy, Tobacco, Sweet</p>
+                </div>
+            </a>
+        </th:block>
     </div>
 </section>
 
