@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${cologne != null ? cologne.name : 'Not Found'}">Cologne</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/colognes}">All Colognes</a>
+</nav>
+
+<div th:if="${cologne != null}">
+    <img class="fragrance-img detail-img" th:src="${cologne.image}" th:alt="${cologne.name}">
+    <h1 th:text="${cologne.name}">Name</h1>
+    <p th:text="${cologne.brand}">Brand</p>
+    <p th:text="${'$' + #numbers.formatDecimal(cologne.price, 1, 2)}">$0.00</p>
+    <p th:text="${cologne.description}">Description</p>
+    <p><a th:href="@{/colognes}">Back</a></p>
+</div>
+
+<div th:if="${cologne == null}">
+    <h1>Not Found</h1>
+    <p class="empty">This fragrance does not exist.</p>
+    <p><a th:href="@{/colognes}">Back</a></p>
+</div>
+
+</body>
+</html>

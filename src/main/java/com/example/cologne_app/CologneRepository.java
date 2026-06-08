@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CologneRepository extends JpaRepository<Cologne, Long> {
+    java.util.Optional<Cologne> findByName(String name);
 }

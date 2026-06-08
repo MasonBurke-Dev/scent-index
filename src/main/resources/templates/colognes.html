@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle}">Scent Index</title>
+    <title>All Colognes</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
@@ -10,22 +10,21 @@
 <nav>
     <a th:href="@{/}">Home</a>
     <a th:href="@{/colognes}">All Colognes</a>
+    
 </nav>
 
-<h1>Scent Index</h1>
+<h1>All Colognes</h1>
 
-<h2>Trending</h2>
-
-<div th:each="cologne : ${trendingColognes}" class="card">
+<div th:each="cologne : ${colognes}" class="card">
     <a th:href="@{'/colognes/cologne/' + ${cologne.id}}">
         <img class="fragrance-img" th:src="${cologne.image}" th:alt="${cologne.name}">
         <p><strong th:text="${cologne.brand}">Brand</strong> — <span th:text="${cologne.name}">Name</span></p>
-        <p th:text="${'$' + #numbers.formatDecimal(cologne.price, 1, 2)}">$0.00</p>
+        <p th:text="${'$' + cologne.price}">$0.00</p>
         <p th:text="${cologne.description}">Description</p>
     </a>
 </div>
 
-<p th:if="${#lists.isEmpty(trendingColognes)}" class="empty">No trending fragrances found.</p>
+<p th:if="${#lists.isEmpty(colognes)}" class="empty">No fragrances found.</p>
 
 </body>
 </html>
